@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float Speed = 3f;
-    private Transform[] waypoints;
+    [SerializeField] private Transform[] waypoints;
     private int waypointIndex = 0;
 
     public void Initialize(Transform[] path)

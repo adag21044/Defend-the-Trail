@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public TowerData SelectedTowerData; // Seçili kule verisi
-    public int PlayerHealth = 3; // Oyuncunun başlangıç sağlığı
+    
 
     private void Awake()
     {
@@ -27,23 +27,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Tower Selected: " + towerData.TowerName);
     }
 
-    // Düşman hedefe ulaştığında çağrılan metod
-    public void EnemyReachedGoal()
+    public void ClearSelection()
     {
-        PlayerHealth--;
-
-        Debug.Log("Enemy reached the goal! Remaining Health: " + PlayerHealth);
-
-        if (PlayerHealth <= 0)
-        {
-            EndGame();
-        }
+        SelectedTowerData = null;
+        Debug.Log("Tower Selection Cleared");
     }
 
-    // Oyunu bitirme işlemi
-    private void EndGame()
+    public void EnemyReachedGoal()
     {
-        Debug.Log("Game Over! You have lost all your health.");
-        // Oyun bitiş ekranı veya başka bir işlem eklenebilir
+        Debug.Log("Enemy Reached Goal!");
     }
 }
